@@ -517,7 +517,7 @@ body {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin-bottom: 12px;
 }
 
 .exp-badge {
@@ -545,34 +545,6 @@ body {
   background: rgba(76,175,80,0.08);
   border-color: rgba(76,175,80,0.15);
 }
-
-.company-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--text-dim);
-}
-
-.company-logo {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: #fff;
-  flex-shrink: 0;
-}
-
-.logo-bolt { background: #34d186; }
-.logo-wh { background: #1a3c6e; }
-.logo-mc { background: #8b6914; }
-.logo-mz { background: #e63946; }
-.logo-vf { background: #e60000; }
-.logo-cm { background: #2196f3; }
 
 /* ─── SKILLS GRID ─── */
 .skills-grid {
@@ -844,6 +816,161 @@ body {
   fill: currentColor;
 }
 
+/* ─── CONTACT FORM ─── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-intro { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 32px; }
+
+.contact-direct { display: flex; flex-direction: column; gap: 12px; }
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.contact-link:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-2px);
+  color: var(--accent);
+}
+
+.contact-link svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.contact-form textarea { resize: vertical; min-height: 120px; }
+
+.form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+
+.form-submit:hover {
+  box-shadow: 0 4px 24px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.form-submit svg { width: 16px; height: 16px; fill: currentColor; }
+
+/* ─── DOWNLOAD BUTTON ─── */
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border: 1px solid var(--accent);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+}
+
+.btn-download:hover {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 24px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.btn-download svg { width: 16px; height: 16px; fill: currentColor; }
+
+.btn-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-contact:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btn-contact svg { width: 16px; height: 16px; fill: currentColor; }
+
 /* ════════════════════════════════
    RESPONSIVE
    ════════════════════════════════ */
@@ -883,8 +1010,6 @@ body {
   .exp-card::before { left: -24px; width: 9px; height: 9px; top: 22px; }
   .exp-inner { padding: 20px; }
   .exp-role { font-size: 15px; }
-  .company-badge { font-size: 12px; }
-  .company-logo { width: 18px; height: 18px; font-size: 9px; border-radius: 4px; }
   .exp-top { flex-direction: column; gap: 6px; }
   .exp-right { align-self: flex-start; }
   .exp-badges { gap: 6px; }
@@ -904,6 +1029,11 @@ body {
 
   .honor-row { padding: 14px 16px; font-size: 13px; }
   .honor-icon { width: 28px; height: 28px; font-size: 12px; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; gap: 10px; }
+  .btn-download, .btn-contact { justify-content: center; }
 
   .contact-bar { flex-direction: column; align-items: center; gap: 10px; padding: 32px 20px 60px; }
   .contact-pill { font-size: 12px; padding: 11px 20px; }
@@ -948,6 +1078,7 @@ body {
   <div class="nav-dot" data-target="skills"><span class="nav-label">Skills</span></div>
   <div class="nav-dot" data-target="education"><span class="nav-label">Education</span></div>
   <div class="nav-dot" data-target="details"><span class="nav-label">Details</span></div>
+  <div class="nav-dot" data-target="contact"><span class="nav-label">Contact</span></div>
 </nav>
 
 
@@ -977,6 +1108,16 @@ body {
           <div class="stat-label">Markets Led</div>
         </div>
       </div>
+      <div class="hero-actions">
+        <a class="btn-download" href="ryan-mahoney-cv-detailed.html" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Download Full CV
+        </a>
+        <a class="btn-contact" href="#contact">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Get in Touch
+        </a>
+      </div>
     </div>
   </div>
   <div class="scroll-hint">
@@ -1001,18 +1142,18 @@ body {
           <div class="exp-top">
             <div class="exp-left">
               <div class="exp-role">Regional General Manager — Malta, Cyprus &amp; Greece</div>
-              <div class="company-badge"><span class="company-logo logo-bolt">B</span> Bolt &middot; Ridehailing</div>
+              <div class="exp-company">Bolt &middot; Ridehailing</div>
             </div>
             <div class="exp-right">
               <span class="exp-period">Apr 2025 — Present</span>
               <div class="exp-toggle">+</div>
             </div>
           </div>
-          <div class="exp-badges">
-            <span class="exp-badge">$XX M+ GMV in &lt;12 mos</span>
-            <span class="exp-badge green">EBITDA Positive</span>
-          </div>
           <div class="exp-details">
+            <div class="exp-badges">
+              <span class="exp-badge">$XX M+ GMV in &lt;12 mos</span>
+              <span class="exp-badge green">EBITDA Positive</span>
+            </div>
             <p>Appointed to lead Bolt's Greek and Cypriot operations alongside Malta. Overseeing multi-market P&amp;L, regulatory strategy, and commercial growth across the Eastern Mediterranean.</p>
             <ul>
               <li>Scaled Greece from launch to <span class="exp-highlight">$XX M+ GMV</span> within the first 12 months</li>
@@ -1028,19 +1169,19 @@ body {
           <div class="exp-top">
             <div class="exp-left">
               <div class="exp-role">General Manager — Malta</div>
-              <div class="company-badge"><span class="company-logo logo-bolt">B</span> Bolt &middot; Ridehailing</div>
+              <div class="exp-company">Bolt &middot; Ridehailing</div>
             </div>
             <div class="exp-right">
               <span class="exp-period">May 2022 — Present</span>
               <div class="exp-toggle">+</div>
             </div>
           </div>
-          <div class="exp-badges">
-            <span class="exp-badge">7x GMV Growth</span>
-            <span class="exp-badge">$XX M → $XXX M+</span>
-            <span class="exp-badge green">EBITDA 3x Turnaround</span>
-          </div>
           <div class="exp-details">
+            <div class="exp-badges">
+              <span class="exp-badge">7x GMV Growth</span>
+              <span class="exp-badge">$XX M → $XXX M+</span>
+              <span class="exp-badge green">EBITDA 3x Turnaround</span>
+            </div>
             <p>Full operational leadership of Bolt Malta — owning strategy, P&amp;L, team restructuring, and regulatory compliance.</p>
             <ul>
               <li>Grew market GMV <span class="exp-highlight">~7x from $XX M to $XXX M+</span></li>
@@ -1057,7 +1198,7 @@ body {
           <div class="exp-top">
             <div class="exp-left">
               <div class="exp-role">Consultant</div>
-              <div class="company-badge"><span class="company-logo logo-mc">M</span> Mahoney Consulting</div>
+              <div class="exp-company">Mahoney Consulting</div>
             </div>
             <div class="exp-right">
               <span class="exp-period">Nov 2021 — Nov 2023</span>
@@ -1075,17 +1216,17 @@ body {
           <div class="exp-top">
             <div class="exp-left">
               <div class="exp-role">Global Expansion Manager</div>
-              <div class="company-badge"><span class="company-logo logo-wh">W</span> William Hill</div>
+              <div class="exp-company">William Hill</div>
             </div>
             <div class="exp-right">
               <span class="exp-period">May 2021 — May 2022</span>
               <div class="exp-toggle">+</div>
             </div>
           </div>
-          <div class="exp-badges">
-            <span class="exp-badge">Colombia Market Launch</span>
-          </div>
           <div class="exp-details">
+            <div class="exp-badges">
+              <span class="exp-badge">Colombia Market Launch</span>
+            </div>
             <ul>
               <li>Led the end-to-end market entry into <span class="exp-highlight">Colombia</span> — regulatory licensing, product localisation, and commercial launch</li>
               <li>Managed cross-functional delivery across technical, operational, and compliance teams</li>
@@ -1100,7 +1241,7 @@ body {
           <div class="exp-top">
             <div class="exp-left">
               <div class="exp-role">Senior Business Advisor</div>
-              <div class="company-badge"><span class="company-logo logo-mz">M</span> Mazars</div>
+              <div class="exp-company">Mazars</div>
             </div>
             <div class="exp-right">
               <span class="exp-period">Sep 2019 — Nov 2020</span>
@@ -1121,7 +1262,7 @@ body {
           <div class="exp-top">
             <div class="exp-left">
               <div class="exp-role">Senior Commercial Analyst &amp; Enterprise Executive</div>
-              <div class="company-badge"><span class="company-logo logo-vf">V</span> Vodafone &middot; 2 yrs 4 mos</div>
+              <div class="exp-company">Vodafone &middot; 2 yrs 4 mos</div>
             </div>
             <div class="exp-right">
               <span class="exp-period">Jun 2017 — Sep 2019</span>
@@ -1143,7 +1284,7 @@ body {
           <div class="exp-top">
             <div class="exp-left">
               <div class="exp-role">Co-Founder</div>
-              <div class="company-badge"><span class="company-logo logo-cm">C</span> Casamesh.com &middot; PropTech</div>
+              <div class="exp-company">Casamesh.com &middot; PropTech</div>
             </div>
             <div class="exp-right">
               <span class="exp-period">Nov 2016 — Jan 2019</span>
@@ -1281,6 +1422,50 @@ body {
           Intermediate Qualification in Piano — Practical &amp; Theory of Music
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="cv-section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Connect</div>
+      <h2 class="section-title">Get in Touch</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="reveal reveal-delay-1">
+        <p class="contact-intro">
+          Interested in discussing a leadership opportunity, strategic partnership, or advisory engagement? I'd be happy to connect.
+        </p>
+        <div class="contact-direct">
+          <a class="contact-link" href="mailto:ryan@mahoney.com.mt">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            ryan@mahoney.com.mt
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/ryan-mahoney-36740243" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+      <form class="contact-form reveal reveal-delay-2" action="https://formsubmit.co/ryan@mahoney.com.mt" method="POST">
+        <input type="hidden" name="_subject" value="New contact from mahoney.consulting">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://mahoney.consulting">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+        </div>
+        <input type="text" name="subject" placeholder="Subject">
+        <textarea name="message" placeholder="Your message..." required></textarea>
+        <button type="submit" class="form-submit">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          Send Message
+        </button>
+      </form>
     </div>
   </div>
 </section>
@@ -1440,7 +1625,7 @@ body {
   };
 
   // ─── NAVIGATION DOTS ───
-  var sections = ['hero', 'experience', 'skills', 'education', 'details'];
+  var sections = ['hero', 'experience', 'skills', 'education', 'details', 'contact'];
   var dots = document.querySelectorAll('.nav-dot');
 
   dots.forEach(function(dot) {
