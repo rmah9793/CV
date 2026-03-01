@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryan Mahoney — Executive CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --bg: #07080f;
+  --bg-card: rgba(255,255,255,0.03);
+  --bg-card-hover: rgba(255,255,255,0.06);
+  --accent: #c9a96e;
+  --accent-glow: rgba(201,169,110,0.3);
+  --accent-light: #e8d5a8;
+  --text: #e8e6e1;
+  --text-dim: #8b8a95;
+  --text-muted: #55546a;
+  --border: rgba(255,255,255,0.06);
+  --navy: #0f1b2d;
+  --gradient-1: #c9a96e;
+  --gradient-2: #a67c52;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── LIGHT THEME ─── */
+[data-theme="light"] {
+  --bg: #f5f3ef;
+  --bg-card: rgba(0,0,0,0.025);
+  --bg-card-hover: rgba(0,0,0,0.05);
+  --text: #1a1a2e;
+  --text-dim: #5a5a7a;
+  --text-muted: #9999aa;
+  --border: rgba(0,0,0,0.08);
+  --navy: #0f1b2d;
+}
+
+[data-theme="light"] .cursor-glow {
+  background: radial-gradient(circle, rgba(201,169,110,0.04) 0%, transparent 70%);
+}
+
+[data-theme="light"] #particles { opacity: 0.5; }
+
+/* ─── CURSOR GLOW ─── */
+.cursor-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+/* ─── PARTICLE CANVAS ─── */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+/* ─── NAVIGATION ─── */
+.nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nav-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.nav-dot.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.nav-dot:hover { border-color: var(--accent); }
+
+.nav-dot .nav-label {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.nav-dot:hover .nav-label { opacity: 1; }
+
+/* ─── THEME TOGGLE ─── */
+.theme-toggle {
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  z-index: 100;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  color: var(--accent);
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: scale(1.1);
+}
+
+.theme-toggle svg { width: 18px; height: 18px; fill: currentColor; }
+.theme-toggle .sun { display: none; }
+[data-theme="light"] .theme-toggle .moon { display: none; }
+[data-theme="light"] .theme-toggle .sun { display: block; }
+
+/* ─── LAYOUT ─── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.cv-section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.cv-section.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* ─── HERO ─── */
+.hero-content { max-width: 760px; }
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(44px, 7vw, 76px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero-content h1 .accent {
+  background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 540px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s forwards;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.6s forwards;
+}
+
+.stat { text-align: left; }
+
+.stat-number {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-number .suffix {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+  .hero-stats { margin-bottom: 0; }
+
+  .scroll-hint span {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SECTION HEADERS ─── */
+.section-header { margin-bottom: 48px; }
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-label::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+/* ─── REVEAL ANIMATIONS ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ─── EXPERIENCE TIMELINE ─── */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--border) 70%, transparent);
+}
+
+.exp-card {
+  margin-bottom: 12px;
+  position: relative;
+  cursor: pointer;
+}
+
+.exp-card::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 26px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--bg);
+  transition: all 0.3s;
+  z-index: 2;
+}
+
+.exp-card:hover::before,
+.exp-card.open::before {
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+
+.exp-inner {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.exp-card:hover .exp-inner,
+.exp-card.open .exp-inner {
+  border-color: rgba(201,169,110,0.15);
+  background: var(--bg-card-hover);
+}
+
+.exp-card:hover .exp-inner::before,
+.exp-card.open .exp-inner::before { opacity: 1; }
+
+.exp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.exp-left { flex: 1; min-width: 0; }
+
+.exp-role {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.exp-company {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.exp-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.exp-period {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.exp-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1;
+  transition: all 0.3s;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.exp-card.open .exp-toggle {
+  transform: rotate(45deg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.exp-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              padding 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding-top: 0;
+}
+
+.exp-card.open .exp-details {
+  max-height: 500px;
+  padding-top: 16px;
+}
+
+.exp-details p,
+.exp-details li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+
+.exp-details ul { list-style: none; }
+
+.exp-details li {
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.exp-details li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 8px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.exp-highlight {
+  display: inline-block;
+  background: rgba(201,169,110,0.1);
+  color: var(--accent-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+[data-theme="light"] .exp-highlight {
+  color: #8a6d2f;
+}
+
+.exp-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.exp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: rgba(201,169,110,0.1);
+  color: var(--accent);
+  border: 1px solid rgba(201,169,110,0.15);
+}
+
+.exp-badge.green {
+  background: rgba(76,175,80,0.08);
+  color: #81c784;
+  border-color: rgba(76,175,80,0.15);
+}
+
+[data-theme="light"] .exp-badge.green {
+  color: #2e7d32;
+  background: rgba(76,175,80,0.08);
+  border-color: rgba(76,175,80,0.15);
+}
+
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.company-logo {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.logo-bolt { background: #34d186; }
+.logo-wh { background: #1a3c6e; }
+.logo-mc { background: #8b6914; }
+.logo-mz { background: #e63946; }
+.logo-vf { background: #e60000; }
+.logo-cm { background: #2196f3; }
+
+/* ─── SKILLS GRID ─── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.skill-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 18px;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.35s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.skill-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(201,169,110,0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.skill-card:hover::after { opacity: 1; }
+
+.skill-card:hover {
+  border-color: rgba(201,169,110,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.skill-icon {
+  font-size: 22px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.skill-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.skill-bar-track {
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 2px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skill-card.visible .skill-bar-fill { width: var(--fill); }
+
+/* ─── EDUCATION GRID ─── */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.edu-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+
+.edu-card:hover {
+  border-color: rgba(201,169,110,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.edu-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.edu-year-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: rgba(201,169,110,0.1);
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.edu-school {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.edu-degree {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+/* ─── INFO GRID ─── */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.info-block {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.35s;
+}
+
+.info-block:hover { border-color: rgba(201,169,110,0.15); }
+
+.info-block h3 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.lang-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+}
+
+.lang-row:last-child { border-bottom: none; }
+
+.lang-level {
+  font-size: 10.5px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cert-row {
+  font-size: 13px;
+  color: var(--text-dim);
+  padding: 7px 0 7px 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.cert-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+}
+
+/* ─── HONORS ─── */
+.honors-list { display: grid; gap: 10px; }
+
+.honor-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+  transition: all 0.3s;
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+
+.honor-row:hover {
+  border-color: rgba(201,169,110,0.15);
+  transform: translateX(6px);
+}
+
+.honor-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(201,169,110,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--accent);
+}
+
+/* ─── CONTACT BAR ─── */
+.contact-bar {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.contact-pill:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-2px);
+  color: var(--accent);
+}
+
+.contact-pill svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .container { padding: 0 40px; }
+  .cv-section { padding: 80px 0; }
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+  .nav { right: 16px; }
+  .theme-toggle { right: 16px; top: 16px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .cv-section { padding: 64px 0; }
+  .cv-section.hero-section { min-height: calc(100vh - 40px); padding-top: 80px; }
+
+  .nav { display: none; }
+  .theme-toggle { right: 16px; top: 16px; width: 38px; height: 38px; }
+  .theme-toggle svg { width: 16px; height: 16px; }
+  .cursor-glow { display: none; }
+
+  .hero-content h1 { font-size: 40px; letter-spacing: -1px; }
+  .hero-subtitle { font-size: 15px; margin-bottom: 36px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .stat-number { font-size: 32px; }
+  .stat-label { font-size: 10px; }
+  .scroll-hint { bottom: 24px; }
+
+  .section-header { margin-bottom: 32px; }
+  .section-title { font-size: 28px; }
+
+  .timeline { padding-left: 24px; }
+  .timeline::before { left: 4px; }
+  .exp-card::before { left: -24px; width: 9px; height: 9px; top: 22px; }
+  .exp-inner { padding: 20px; }
+  .exp-role { font-size: 15px; }
+  .company-badge { font-size: 12px; }
+  .company-logo { width: 18px; height: 18px; font-size: 9px; border-radius: 4px; }
+  .exp-top { flex-direction: column; gap: 6px; }
+  .exp-right { align-self: flex-start; }
+  .exp-badges { gap: 6px; }
+  .exp-badge { font-size: 10px; padding: 3px 9px; }
+
+  .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .skill-card { padding: 16px 14px; }
+  .skill-icon { font-size: 18px; margin-bottom: 8px; }
+  .skill-name { font-size: 11.5px; }
+
+  .edu-grid { grid-template-columns: 1fr; gap: 12px; }
+  .edu-card { padding: 22px; }
+  .edu-school { font-size: 15px; }
+
+  .info-grid { grid-template-columns: 1fr; gap: 12px; }
+  .info-block { padding: 22px; }
+
+  .honor-row { padding: 14px 16px; font-size: 13px; }
+  .honor-icon { width: 28px; height: 28px; font-size: 12px; }
+
+  .contact-bar { flex-direction: column; align-items: center; gap: 10px; padding: 32px 20px 60px; }
+  .contact-pill { font-size: 12px; padding: 11px 20px; }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .hero-content h1 { font-size: 34px; }
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-number { font-size: 28px; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ─── PRINT ─── */
+@media print {
+  .cursor-glow, #particles, .nav, .theme-toggle, .scroll-hint { display: none !important; }
+  .cv-section { padding: 24px 0; min-height: auto !important; }
+  .exp-card.open .exp-details, .exp-details { max-height: none !important; padding-top: 10px !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  body { background: #fff; color: #1a1a2e; }
+  .exp-inner, .skill-card, .edu-card, .info-block, .honor-row {
+    border-color: #ddd;
+    background: transparent;
+    backdrop-filter: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<canvas id="particles"></canvas>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+  <svg class="moon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+  <svg class="sun" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+</button>
+
+<nav class="nav" id="navDots">
+  <div class="nav-dot active" data-target="hero"><span class="nav-label">Home</span></div>
+  <div class="nav-dot" data-target="experience"><span class="nav-label">Experience</span></div>
+  <div class="nav-dot" data-target="skills"><span class="nav-label">Skills</span></div>
+  <div class="nav-dot" data-target="education"><span class="nav-label">Education</span></div>
+  <div class="nav-dot" data-target="details"><span class="nav-label">Details</span></div>
+</nav>
+
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="cv-section hero-section" id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Ryan<br><span class="accent">Mahoney</span></h1>
+      <p class="hero-subtitle">
+        Commercially driven General Manager with a track record of scaling markets from zero to dominance, turning around underperforming P&amp;Ls to EBITDA-positive, and navigating complex regulatory frameworks across multiple jurisdictions. Proven ability to restructure teams, drive change management, and deliver step-change growth in high-velocity industries.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number"><span class="counter" data-target="10">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number"><span class="counter" data-target="7">0</span><span class="suffix">x</span></div>
+          <div class="stat-label">GMV Growth</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number"><span class="counter" data-target="3">0</span><span class="suffix">x</span></div>
+          <div class="stat-label">EBITDA Turnaround</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number"><span class="counter" data-target="4">0</span></div>
+          <div class="stat-label">Markets Led</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════ EXPERIENCE ═══════════ -->
+<section class="cv-section" id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Professional Experience</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="exp-card reveal reveal-delay-1" onclick="toggleCard(this)">
+        <div class="exp-inner">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-role">Regional General Manager — Malta, Cyprus &amp; Greece</div>
+              <div class="company-badge"><span class="company-logo logo-bolt">B</span> Bolt &middot; Ridehailing</div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-period">Apr 2025 — Present</span>
+              <div class="exp-toggle">+</div>
+            </div>
+          </div>
+          <div class="exp-badges">
+            <span class="exp-badge">$XX M+ GMV in &lt;12 mos</span>
+            <span class="exp-badge green">EBITDA Positive</span>
+          </div>
+          <div class="exp-details">
+            <p>Appointed to lead Bolt's Greek and Cypriot operations alongside Malta. Overseeing multi-market P&amp;L, regulatory strategy, and commercial growth across the Eastern Mediterranean.</p>
+            <ul>
+              <li>Scaled Greece from launch to <span class="exp-highlight">$XX M+ GMV</span> within the first 12 months</li>
+              <li>Full ownership of go-to-market strategy, driver supply, and government relations across three markets</li>
+              <li>Navigating regulatory frameworks across multiple jurisdictions simultaneously</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-2" onclick="toggleCard(this)">
+        <div class="exp-inner">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-role">General Manager — Malta</div>
+              <div class="company-badge"><span class="company-logo logo-bolt">B</span> Bolt &middot; Ridehailing</div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-period">May 2022 — Present</span>
+              <div class="exp-toggle">+</div>
+            </div>
+          </div>
+          <div class="exp-badges">
+            <span class="exp-badge">7x GMV Growth</span>
+            <span class="exp-badge">$XX M → $XXX M+</span>
+            <span class="exp-badge green">EBITDA 3x Turnaround</span>
+          </div>
+          <div class="exp-details">
+            <p>Full operational leadership of Bolt Malta — owning strategy, P&amp;L, team restructuring, and regulatory compliance.</p>
+            <ul>
+              <li>Grew market GMV <span class="exp-highlight">~7x from $XX M to $XXX M+</span></li>
+              <li>Turned the market from loss-making to <span class="exp-highlight">EBITDA-positive</span>, achieving a 3x turnaround</li>
+              <li>Restructured and scaled the local team; established Bolt as the dominant platform on the island</li>
+              <li>Led regulatory navigation, pricing strategy, and key partnership development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-3" onclick="toggleCard(this)">
+        <div class="exp-inner">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-role">Consultant</div>
+              <div class="company-badge"><span class="company-logo logo-mc">M</span> Mahoney Consulting</div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-period">Nov 2021 — Nov 2023</span>
+              <div class="exp-toggle">+</div>
+            </div>
+          </div>
+          <div class="exp-details">
+            <p>Independent advisory across market-entry strategy, commercial due diligence, and operational transformation for technology and gaming clients in European markets.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-4" onclick="toggleCard(this)">
+        <div class="exp-inner">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-role">Global Expansion Manager</div>
+              <div class="company-badge"><span class="company-logo logo-wh">W</span> William Hill</div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-period">May 2021 — May 2022</span>
+              <div class="exp-toggle">+</div>
+            </div>
+          </div>
+          <div class="exp-badges">
+            <span class="exp-badge">Colombia Market Launch</span>
+          </div>
+          <div class="exp-details">
+            <ul>
+              <li>Led the end-to-end market entry into <span class="exp-highlight">Colombia</span> — regulatory licensing, product localisation, and commercial launch</li>
+              <li>Managed cross-functional delivery across technical, operational, and compliance teams</li>
+              <li>Owned programme budgets, milestones, and executive stakeholder reporting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" onclick="toggleCard(this)">
+        <div class="exp-inner">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-role">Senior Business Advisor</div>
+              <div class="company-badge"><span class="company-logo logo-mz">M</span> Mazars</div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-period">Sep 2019 — Nov 2020</span>
+              <div class="exp-toggle">+</div>
+            </div>
+          </div>
+          <div class="exp-details">
+            <ul>
+              <li>Governance, risk, and compliance reviews for regulated financial and gaming entities</li>
+              <li>Forensic investigations — scoping, data analysis, and evidence synthesis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" onclick="toggleCard(this)">
+        <div class="exp-inner">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-role">Senior Commercial Analyst &amp; Enterprise Executive</div>
+              <div class="company-badge"><span class="company-logo logo-vf">V</span> Vodafone &middot; 2 yrs 4 mos</div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-period">Jun 2017 — Sep 2019</span>
+              <div class="exp-toggle">+</div>
+            </div>
+          </div>
+          <div class="exp-details">
+            <ul>
+              <li>Led consumer pricing strategy, channel economics, and product P&amp;L across all segments</li>
+              <li>Launched B2B products for Corporate, SME, and SOHO; built financial business cases for senior leadership</li>
+              <li>Developed CVM initiatives that grew consumer revenues and optimised retail footprint</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal" onclick="toggleCard(this)">
+        <div class="exp-inner">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-role">Co-Founder</div>
+              <div class="company-badge"><span class="company-logo logo-cm">C</span> Casamesh.com &middot; PropTech</div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-period">Nov 2016 — Jan 2019</span>
+              <div class="exp-toggle">+</div>
+            </div>
+          </div>
+          <div class="exp-details">
+            <p>Co-founded Europe's first centralised property search engine. Secured Malta Enterprise funding, accepted into the PwC &euro;1M Start-up Fund, and represented at the Lisbon Innovation Summit 2018.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ SKILLS ═══════════ -->
+<section class="cv-section" id="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Expertise</div>
+      <h2 class="section-title">Core Competencies</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal reveal-delay-1">
+        <span class="skill-icon">&#9878;</span>
+        <div class="skill-name">P&amp;L Ownership</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:95%"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <span class="skill-icon">&#9650;</span>
+        <div class="skill-name">EBITDA Turnaround</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:93%"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3">
+        <span class="skill-icon">&#9992;</span>
+        <div class="skill-name">Market Expansion</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:94%"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-4">
+        <span class="skill-icon">&#8635;</span>
+        <div class="skill-name">Change Management</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:92%"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <span class="skill-icon">&#9733;</span>
+        <div class="skill-name">Team Leadership</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:94%"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <span class="skill-icon">&#9881;</span>
+        <div class="skill-name">Strategic Planning</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:90%"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3">
+        <span class="skill-icon">&#8853;</span>
+        <div class="skill-name">Commercial Growth</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:91%"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-4">
+        <span class="skill-icon">&#9883;</span>
+        <div class="skill-name">Regulatory &amp; Compliance</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:88%"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <span class="skill-icon">&#8984;</span>
+        <div class="skill-name">Data &amp; Analytics</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:87%"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <span class="skill-icon">&#10070;</span>
+        <div class="skill-name">Stakeholder Mgmt</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:90%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ EDUCATION ═══════════ -->
+<section class="cv-section" id="education">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Education</div>
+      <h2 class="section-title">Academic Background</h2>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-card reveal reveal-delay-1">
+        <span class="edu-year-badge">2015 — 2016</span>
+        <div class="edu-school">Vlerick Business School, Brussels</div>
+        <div class="edu-degree">MSc General Management — Advanced Strategy &amp; Analytics</div>
+      </div>
+      <div class="edu-card reveal reveal-delay-2">
+        <span class="edu-year-badge">Professional Course</span>
+        <div class="edu-school">Harvard Business School (HBX)</div>
+        <div class="edu-degree">Disruptive Strategy</div>
+      </div>
+      <div class="edu-card reveal reveal-delay-3">
+        <span class="edu-year-badge">2011 — 2015</span>
+        <div class="edu-school">University of Malta</div>
+        <div class="edu-degree">BEng (Honours) — Mechanical Engineering</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ DETAILS ═══════════ -->
+<section class="cv-section" id="details">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">More</div>
+      <h2 class="section-title">Languages &amp; Honours</h2>
+    </div>
+
+    <div class="info-grid reveal" style="grid-template-columns:1fr">
+      <div class="info-block" style="max-width:400px">
+        <h3>Languages</h3>
+        <div class="lang-row"><span>English</span><span class="lang-level">Native</span></div>
+        <div class="lang-row"><span>Maltese</span><span class="lang-level">Native</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:28px">
+      <div class="honors-list">
+        <div class="honor-row reveal reveal-delay-1">
+          <div class="honor-icon">&#9670;</div>
+          JA Young Enterprise — <strong>1st in Malta</strong>, <strong>4th in Europe</strong> (European Finals, Cagliari, Italy)
+        </div>
+        <div class="honor-row reveal reveal-delay-2">
+          <div class="honor-icon">&#9835;</div>
+          Intermediate Qualification in Piano — Practical &amp; Theory of Music
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<div class="contact-bar">
+  <a class="contact-pill" href="mailto:ryan@mahoney.com.mt">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    ryan@mahoney.com.mt
+  </a>
+  <a class="contact-pill" href="https://www.linkedin.com/in/ryan-mahoney-36740243" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+    LinkedIn
+  </a>
+</div>
+
+
+<script>
+(function() {
+  // ─── PARTICLES ───
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let w, h;
+  const mouse = { x: -999, y: -999 };
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.vx = (Math.random() - 0.5) * 0.3;
+      this.vy = (Math.random() - 0.5) * 0.3;
+      this.r = Math.random() * 1.5 + 0.5;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < -10) this.x = w + 10;
+      if (this.x > w + 10) this.x = -10;
+      if (this.y < -10) this.y = h + 10;
+      if (this.y > h + 10) this.y = -10;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(201,169,110,0.3)';
+      ctx.fill();
+    }
+  }
+
+  const isMobile = window.innerWidth < 768;
+  const count = isMobile ? 30 : Math.min(60, Math.floor(w * h / 20000));
+  for (let i = 0; i < count; i++) particles.push(new Particle());
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+    }
+
+    const connDist = isMobile ? 80 : 110;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = dx * dx + dy * dy;
+        if (dist < connDist * connDist) {
+          const d = Math.sqrt(dist);
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(201,169,110,${0.05 * (1 - d / connDist)})`;
+          ctx.stroke();
+        }
+      }
+      if (!isMobile) {
+        const dmx = particles[i].x - mouse.x;
+        const dmy = particles[i].y - mouse.y;
+        const md = dmx * dmx + dmy * dmy;
+        if (md < 40000) {
+          const d = Math.sqrt(md);
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(201,169,110,${0.1 * (1 - d / 200)})`;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // ─── CURSOR GLOW (desktop only) ───
+  const glow = document.getElementById('cursorGlow');
+  if (!isMobile) {
+    document.addEventListener('mousemove', function(e) {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  }
+
+  // ─── THEME TOGGLE ───
+  document.getElementById('themeToggle').addEventListener('click', function() {
+    const html = document.documentElement;
+    html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  });
+
+  // ─── SCROLL REVEAL ───
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
+
+  // ─── ANIMATED COUNTERS ───
+  var counterObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      var target = parseInt(el.dataset.target, 10);
+      var current = 0;
+      var step = Math.max(1, Math.floor(target / 30));
+      var iv = setInterval(function() {
+        current += step;
+        if (current >= target) { current = target; clearInterval(iv); }
+        el.textContent = current;
+      }, 35);
+      counterObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.counter').forEach(function(el) { counterObs.observe(el); });
+
+  // ─── EXPANDABLE CARDS ───
+  window.toggleCard = function(card) {
+    var wasOpen = card.classList.contains('open');
+    document.querySelectorAll('.exp-card.open').forEach(function(c) { c.classList.remove('open'); });
+    if (!wasOpen) card.classList.add('open');
+  };
+
+  // ─── NAVIGATION DOTS ───
+  var sections = ['hero', 'experience', 'skills', 'education', 'details'];
+  var dots = document.querySelectorAll('.nav-dot');
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var target = document.getElementById(dot.dataset.target);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  var scrollTick = false;
+  window.addEventListener('scroll', function() {
+    if (scrollTick) return;
+    scrollTick = true;
+    requestAnimationFrame(function() {
+      var current = '';
+      var vh = window.innerHeight;
+      sections.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < vh * 0.5) current = id;
+      });
+      dots.forEach(function(d) {
+        d.classList.toggle('active', d.dataset.target === current);
+      });
+      scrollTick = false;
+    });
+  });
+
+  // ─── SKILL CARD MOUSE TRACKING ───
+  if (!isMobile) {
+    document.querySelectorAll('.skill-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+        card.style.setProperty('--mouse-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
