@@ -218,19 +218,19 @@ body {
   animation: fadeUp 0.8s 0.6s forwards;
 }
 
-.stat { text-align: left; }
+.stat { text-align: center; }
 
 .stat-number {
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--accent);
-  line-height: 1;
-  margin-bottom: 4px;
-  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  white-space: nowrap;
 }
 
 .stat-number .suffix {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -997,9 +997,9 @@ body {
 
   .hero-content h1 { font-size: 40px; letter-spacing: -1px; }
   .hero-subtitle { font-size: 15px; margin-bottom: 36px; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .stat-number { font-size: 32px; }
-  .stat-label { font-size: 10px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .stat-number { font-size: 26px; }
+  .stat-label { font-size: 9.5px; letter-spacing: 1px; }
   .scroll-hint { bottom: 24px; }
 
   .section-header { margin-bottom: 32px; }
@@ -1042,8 +1042,9 @@ body {
 /* Small phones */
 @media (max-width: 380px) {
   .hero-content h1 { font-size: 34px; }
-  .hero-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
-  .stat-number { font-size: 28px; }
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .stat-number { font-size: 22px; }
+  .stat-label { font-size: 9px; letter-spacing: 0.8px; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
 }
 
@@ -1096,12 +1097,12 @@ body {
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat">
-          <div class="stat-number"><span class="counter" data-target="7">0</span><span class="suffix">x</span></div>
-          <div class="stat-label">GMV Growth</div>
+          <div class="stat-number">€X00M</div>
+          <div class="stat-label">GMV</div>
         </div>
         <div class="stat">
-          <div class="stat-number"><span class="counter" data-target="3">0</span><span class="suffix">x</span></div>
-          <div class="stat-label">EBITDA Growth</div>
+          <div class="stat-number">€X0M</div>
+          <div class="stat-label">EBITDA</div>
         </div>
         <div class="stat">
           <div class="stat-number"><span class="counter" data-target="4">0</span></div>
