@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryan Mahoney — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --accent: #b8933e;
+  --text: #1a1a2e;
+  --dim: #4a4a6a;
+  --muted: #8888a0;
+  --border: #e2e0db;
+  --bg: #ffffff;
+}
+
+html { font-size: 15px; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: #f0efec;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--bg);
+  padding: 56px 64px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.06);
+}
+
+.print-bar {
+  max-width: 860px;
+  margin: 20px auto 0;
+  text-align: center;
+  padding: 16px;
+}
+
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.print-btn:hover { background: #a07e30; border-color: #a07e30; }
+.print-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+.print-hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* ─── HEADER ─── */
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--text);
+}
+
+.cv-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.cv-header .subtitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cv-contact {
+  text-align: right;
+  font-size: 13px;
+  color: var(--dim);
+  line-height: 1.8;
+}
+
+.cv-contact a { color: var(--accent); text-decoration: none; }
+
+/* ─── SECTIONS ─── */
+.cv-section { margin-bottom: 28px; }
+
+.cv-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.summary {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--dim);
+  margin-bottom: 24px;
+}
+
+/* ─── EXPERIENCE ─── */
+.role { margin-bottom: 20px; }
+
+.role-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2px;
+}
+
+.role-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.role-period {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.role-company {
+  font-size: 13px;
+  color: var(--dim);
+  margin-bottom: 6px;
+}
+
+.role-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--dim);
+}
+
+.role-desc ul { list-style: none; margin-top: 4px; }
+
+.role-desc li {
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.role-desc li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(184,147,62,0.1);
+  color: var(--accent);
+  margin-right: 6px;
+  margin-bottom: 4px;
+}
+
+/* ─── EDUCATION ─── */
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.edu-info { flex: 1; }
+
+.edu-school {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.edu-degree {
+  font-size: 12.5px;
+  color: var(--dim);
+}
+
+.edu-year {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+/* ─── SKILLS / LANGUAGES / HONORS ─── */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.tag {
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--dim);
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; }
+
+.two-col-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 4px 0;
+}
+
+.two-col-level {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.honor-item {
+  font-size: 13px;
+  color: var(--dim);
+  margin-bottom: 4px;
+  padding-left: 12px;
+  position: relative;
+}
+
+.honor-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ─── PRINT ─── */
+@media print {
+  body { background: #fff; }
+  .page { box-shadow: none; padding: 32px 48px; max-width: 100%; }
+  .print-bar { display: none; }
+  .cv-section { break-inside: avoid; }
+  @page { margin: 0.5in; }
+}
+
+@media (max-width: 640px) {
+  .page { padding: 32px 24px; }
+  .cv-header { flex-direction: column; gap: 12px; }
+  .cv-contact { text-align: left; }
+  .role-head { flex-direction: column; }
+  .edu-row { flex-direction: column; }
+  .two-col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+    Save as PDF
+  </button>
+  <div class="print-hint">Click the button above, then choose "Save as PDF" as the destination</div>
+</div>
+
+<div class="page">
+
+  <header class="cv-header">
+    <div>
+      <h1>Ryan Mahoney</h1>
+      <div class="subtitle">General Manager &bull; Mobility &amp; Technology</div>
+    </div>
+    <div class="cv-contact">
+      <a href="mailto:ryan@mahoney.com.mt">ryan@mahoney.com.mt</a><br>
+      Malta<br>
+      <a href="https://www.linkedin.com/in/ryan-mahoney-36740243">LinkedIn Profile</a><br>
+      <a href="https://mahoney.consulting">mahoney.consulting</a>
+    </div>
+  </header>
+
+  <p class="summary">
+    Commercially driven General Manager with 10+ years of progressive experience across mobility tech, telecommunications, global expansion, and strategic consulting. Track record of scaling markets from zero to dominance, turning around underperforming P&amp;Ls to EBITDA-positive, and navigating complex regulatory frameworks across multiple jurisdictions. Combines deep commercial acumen with an engineering foundation and an MBA specialisation in Advanced Strategy &amp; Analytics to restructure teams, drive change management, and deliver step-change growth in high-velocity industries.
+  </p>
+
+  <div class="cv-section">
+    <div class="cv-section-title">Professional Experience</div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">Regional General Manager — Malta, Cyprus &amp; Greece</span>
+        <span class="role-period">Apr 2025 — Present</span>
+      </div>
+      <div class="role-company">Bolt &middot; Ridehailing</div>
+      <div style="margin-bottom:6px">
+        <span class="role-badge">$XX M+ GMV in &lt;12 mos</span>
+        <span class="role-badge">EBITDA Positive</span>
+      </div>
+      <div class="role-desc">
+        Appointed to lead Bolt's Greek and Cypriot operations alongside the Malta portfolio. Overseeing multi-market P&amp;L, regulatory strategy, and commercial growth across the Eastern Mediterranean.
+        <ul>
+          <li>Scaled Greece from launch to $XX M+ GMV within the first 12 months</li>
+          <li>Full ownership of go-to-market strategy, driver supply, and government relations across three markets</li>
+          <li>Navigating regulatory frameworks across multiple jurisdictions simultaneously</li>
+          <li>Leading cross-border operational alignment and resource allocation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">General Manager — Malta</span>
+        <span class="role-period">May 2022 — Present</span>
+      </div>
+      <div class="role-company">Bolt &middot; Ridehailing</div>
+      <div style="margin-bottom:6px">
+        <span class="role-badge">7x GMV Growth</span>
+        <span class="role-badge">$XX M → $XXX M+</span>
+        <span class="role-badge">EBITDA 3x Turnaround</span>
+      </div>
+      <div class="role-desc">
+        Full operational leadership of Bolt's Maltese market — owning strategy, P&amp;L, team restructuring, and regulatory compliance.
+        <ul>
+          <li>Grew market GMV approximately 7x from $XX M to $XXX M+</li>
+          <li>Turned the market from loss-making to EBITDA-positive, achieving a 3x turnaround</li>
+          <li>Restructured and scaled the local team; established Bolt as the dominant mobility platform on the island</li>
+          <li>Led regulatory navigation, pricing strategy, and key partnership development</li>
+          <li>Managed driver acquisition, supply/demand balancing, and marketplace health</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">Consultant</span>
+        <span class="role-period">Nov 2021 — Nov 2023</span>
+      </div>
+      <div class="role-company">Mahoney Consulting</div>
+      <div class="role-desc">
+        Independent advisory engagements spanning market-entry strategy, commercial due diligence, and operational transformation for technology and gaming clients across European markets.
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">Global Expansion Manager</span>
+        <span class="role-period">May 2021 — May 2022</span>
+      </div>
+      <div class="role-company">William Hill</div>
+      <div style="margin-bottom:6px">
+        <span class="role-badge">Colombia Market Launch</span>
+      </div>
+      <div class="role-desc">
+        <ul>
+          <li>Led the end-to-end market entry into Colombia — regulatory licensing, product localisation, and commercial launch</li>
+          <li>Managed cross-functional delivery across technical, operational, and compliance teams</li>
+          <li>Owned programme budgets, milestones, and executive stakeholder reporting</li>
+          <li>Translated strategic vision into actionable roadmaps, aligning engineering and commercial priorities</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">Senior Business Advisor</span>
+        <span class="role-period">Sep 2019 — Nov 2020</span>
+      </div>
+      <div class="role-company">Mazars</div>
+      <div class="role-desc">
+        <ul>
+          <li>Reviewed governance frameworks, internal controls, and risk management systems for regulated entities</li>
+          <li>Conducted regulatory and compliance monitoring engagements for financial and gaming sectors</li>
+          <li>Contributed to forensic investigations — scoping, data analysis, and evidence synthesis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">Senior Commercial Analyst</span>
+        <span class="role-period">Jul 2018 — Sep 2019</span>
+      </div>
+      <div class="role-company">Vodafone</div>
+      <div class="role-desc">
+        <ul>
+          <li>Led consumer pricing strategy, channel economics, and product P&amp;L across all segments</li>
+          <li>Conducted segment revenue deep-dives to maximise margins</li>
+          <li>Developed customer value management (CVM) initiatives that grew consumer revenues</li>
+          <li>Optimised retail footprint and channel efficiency through data-driven decision-making</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">Enterprise Marketing &amp; Pricing Executive</span>
+        <span class="role-period">Jun 2017 — Jul 2018</span>
+      </div>
+      <div class="role-company">Vodafone</div>
+      <div class="role-desc">
+        <ul>
+          <li>Launched B2B telecommunications products across Corporate, SME, and SOHO segments</li>
+          <li>Built financial business cases for pricing and product initiatives, reporting to senior leadership</li>
+          <li>Managed Net Promoter Score performance and customer experience targets for Enterprise</li>
+          <li>Implemented new profitable revenue streams and cost initiatives for the B2B segment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">Co-Founder</span>
+        <span class="role-period">Nov 2016 — Jan 2019</span>
+      </div>
+      <div class="role-company">Casamesh.com &middot; PropTech</div>
+      <div class="role-desc">
+        Co-founded Europe's first fully centralised property search engine. Led concept development, business modelling, financial planning, and digital product ownership. Secured Malta Enterprise funding, accepted into the PwC &euro;1M Start-up Fund, and represented at the Lisbon Innovation Summit 2018.
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">Graduate Development Programme</span>
+        <span class="role-period">Aug 2016 — May 2017</span>
+      </div>
+      <div class="role-company">Tipico</div>
+      <div class="role-desc">
+        Rotational programme spanning Digital Marketing and Product Strategy — business intelligence, CRM analytics, acquisition analytics, competitor benchmarking, and KPI reporting across the product lifecycle using Agile &amp; Scrum principles.
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <span class="role-title">Management Consulting Intern</span>
+        <span class="role-period">Apr — Jun 2016</span>
+      </div>
+      <div class="role-company">Steinhoff International &middot; Vlerick Business School Capstone</div>
+      <div class="role-desc">
+        Final-year consulting project supporting e-commerce transformation for the world's second-largest furniture retailer. Delivered supply-chain analytics and digital strategy recommendations.
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <div class="cv-section-title">Education</div>
+
+    <div class="edu-row">
+      <div class="edu-info">
+        <div class="edu-school">Vlerick Business School, Brussels</div>
+        <div class="edu-degree">MSc General Management — Advanced Strategy &amp; Analytics</div>
+      </div>
+      <span class="edu-year">2015 — 2016</span>
+    </div>
+
+    <div class="edu-row">
+      <div class="edu-info">
+        <div class="edu-school">Harvard Business School (HBX)</div>
+        <div class="edu-degree">Disruptive Strategy (Professional Course)</div>
+      </div>
+      <span class="edu-year"></span>
+    </div>
+
+    <div class="edu-row">
+      <div class="edu-info">
+        <div class="edu-school">University of Malta</div>
+        <div class="edu-degree">Bachelor of Engineering (Honours) — Mechanical Engineering</div>
+      </div>
+      <span class="edu-year">2011 — 2015</span>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <div class="cv-section-title">Core Competencies</div>
+    <div class="tags">
+      <span class="tag">P&amp;L Ownership</span>
+      <span class="tag">EBITDA Turnaround</span>
+      <span class="tag">Market Expansion</span>
+      <span class="tag">Change Management</span>
+      <span class="tag">Team Leadership</span>
+      <span class="tag">Strategic Planning</span>
+      <span class="tag">Commercial Growth</span>
+      <span class="tag">Regulatory &amp; Compliance</span>
+      <span class="tag">Data &amp; Analytics</span>
+      <span class="tag">Stakeholder Management</span>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <div class="cv-section-title">Languages</div>
+    <div class="two-col" style="max-width:340px">
+      <div class="two-col-item"><span>English</span><span class="two-col-level">Native</span></div>
+      <div class="two-col-item"><span>Maltese</span><span class="two-col-level">Native</span></div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <div class="cv-section-title">Honours &amp; Awards</div>
+    <div class="honor-item">JA Young Enterprise — <strong>1st in Malta</strong>, <strong>4th in Europe</strong> (European Finals, Cagliari, Italy)</div>
+    <div class="honor-item">PwC &euro;1M Start-up Fund — Accepted (Casamesh.com)</div>
+    <div class="honor-item">Lisbon Innovation Summit 2018 — Selected Participant</div>
+    <div class="honor-item">Intermediate Qualification in Piano — Practical &amp; Theory of Music</div>
+  </div>
+
+</div>
+
+<script>
+</script>
+
+</body>
+</html>
