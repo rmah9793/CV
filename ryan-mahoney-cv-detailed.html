@@ -5,25 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ryan Mahoney — CV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root {
-  --accent: #b8933e;
-  --text: #1a1a2e;
-  --dim: #4a4a6a;
-  --muted: #8888a0;
-  --border: #e2e0db;
+  --accent: #8c2f1b;
+  --text: #1b1b1b;
+  --dim: #4a4a4a;
+  --muted: #8a8a8a;
+  --border: #dcd8d0;
   --bg: #ffffff;
+  --serif: 'Source Serif 4', Georgia, serif;
 }
 
 html { font-size: 15px; }
 
 body {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
   color: var(--text);
-  background: #f0efec;
+  background: #efede8;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
@@ -33,7 +34,7 @@ body {
   margin: 0 auto;
   background: var(--bg);
   padding: 56px 64px;
-  box-shadow: 0 0 60px rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
 }
 
 .print-bar {
@@ -48,18 +49,18 @@ body {
   align-items: center;
   gap: 8px;
   padding: 12px 32px;
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  background: var(--accent);
+  border: 1px solid var(--text);
+  border-radius: 0;
+  background: var(--text);
   color: #fff;
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.print-btn:hover { background: #a07e30; border-color: #a07e30; }
+.print-btn:hover { background: var(--accent); border-color: var(--accent); }
 .print-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
 .print-hint {
@@ -79,20 +80,18 @@ body {
 }
 
 .cv-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
+  font-family: var(--serif);
+  font-size: 38px;
   font-weight: 700;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   line-height: 1.1;
   margin-bottom: 6px;
 }
 
 .cv-header .subtitle {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--accent);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--dim);
 }
 
 .cv-contact {
@@ -102,17 +101,16 @@ body {
   line-height: 1.8;
 }
 
-.cv-contact a { color: var(--accent); text-decoration: none; }
+.cv-contact a { color: var(--text); text-underline-offset: 3px; text-decoration-color: var(--border); }
 
 /* ─── SECTIONS ─── */
 .cv-section { margin-bottom: 28px; }
 
 .cv-section-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--accent);
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
   margin-bottom: 16px;
   padding-bottom: 6px;
   border-bottom: 1px solid var(--border);
@@ -136,22 +134,23 @@ body {
 }
 
 .role-title {
-  font-size: 15px;
+  font-family: var(--serif);
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.3;
 }
 
 .role-period {
   font-size: 12px;
-  font-weight: 500;
-  color: var(--accent);
+  color: var(--muted);
   white-space: nowrap;
   padding-top: 2px;
 }
 
 .role-company {
   font-size: 13px;
-  color: var(--dim);
+  color: var(--accent);
+  font-weight: 500;
   margin-bottom: 6px;
 }
 
@@ -176,19 +175,21 @@ body {
   top: 9px;
   width: 6px;
   height: 1px;
-  background: var(--accent);
+  background: var(--muted);
 }
 
 .role-badge {
   display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  background: rgba(184,147,62,0.1);
-  color: var(--accent);
-  margin-right: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
   margin-bottom: 4px;
+}
+
+.role-badge + .role-badge::before {
+  content: '·';
+  margin: 0 8px;
+  color: var(--muted);
 }
 
 /* ─── EDUCATION ─── */
@@ -201,7 +202,8 @@ body {
 .edu-info { flex: 1; }
 
 .edu-school {
-  font-size: 14px;
+  font-family: var(--serif);
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.3;
 }
@@ -213,8 +215,7 @@ body {
 
 .edu-year {
   font-size: 12px;
-  color: var(--accent);
-  font-weight: 500;
+  color: var(--muted);
   white-space: nowrap;
   padding-top: 2px;
 }
@@ -225,7 +226,7 @@ body {
 .tag {
   padding: 4px 12px;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: 0;
   font-size: 12px;
   font-weight: 500;
   color: var(--dim);
@@ -241,10 +242,8 @@ body {
 }
 
 .two-col-level {
-  font-size: 11px;
-  color: var(--accent);
-  font-weight: 500;
-  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
 }
 
 .honor-item {
@@ -262,7 +261,7 @@ body {
   top: 9px;
   width: 5px;
   height: 1px;
-  background: var(--accent);
+  background: var(--muted);
 }
 
 /* ─── PRINT ─── */
@@ -318,8 +317,16 @@ body {
 
     <div class="role">
       <div class="role-head">
+        <span class="role-title">Group Chief Operating Officer</span>
+        <span class="role-period">Sep 2026 — Present</span>
+      </div>
+      <div class="role-company">BL Group</div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
         <span class="role-title">Regional General Manager — Malta, Cyprus &amp; Greece</span>
-        <span class="role-period">Apr 2025 — Present</span>
+        <span class="role-period">Apr 2025 — Aug 2026</span>
       </div>
       <div class="role-company">Bolt &middot; Ridehailing</div>
       <div style="margin-bottom:6px">
@@ -341,7 +348,7 @@ body {
     <div class="role">
       <div class="role-head">
         <span class="role-title">General Manager — Malta</span>
-        <span class="role-period">May 2022 — Present</span>
+        <span class="role-period">May 2022 — Apr 2025</span>
       </div>
       <div class="role-company">Bolt &middot; Ridehailing</div>
       <div style="margin-bottom:6px">
